@@ -1,29 +1,64 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
   <title>GoldFit</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">GoldFit</div>
-    <div class="actions">
-      <button id="langBtn" class="chip">AR | EN</button>
-      <button id="modeBtn" class="chip">🌙</button>
-    </div>
-  </header>
 
-  <main class="container">
+<header class="topbar">
+  <div class="brand">GoldFit</div>
+  <div class="actions">
+    <button id="langBtn">AR | EN</button>
+    <button id="modeBtn">🌙</button>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- STEP 1 -->
+  <section id="step-section">
     <h1>اختر القسم</h1>
     <div class="grid">
-      <button class="card">رجال</button>
-      <button class="card">نساء</button>
+      <button onclick="setSection('men')">رجال</button>
+      <button onclick="setSection('women')">نساء</button>
     </div>
-    <button class="primary">ابدأ</button>
-  </main>
+  </section>
 
-  <script src="app.js"></script>
+  <!-- STEP 2 -->
+  <section id="step-body" class="hidden">
+    <h1>بيانات الجسم</h1>
+    <input id="height" type="number" placeholder="الطول (سم)">
+    <input id="weight" type="number" placeholder="الوزن (كغ)">
+    <button onclick="goGoals()">التالي</button>
+  </section>
+
+  <!-- STEP 3 -->
+  <section id="step-goal" class="hidden">
+    <h1>اختر الهدف</h1>
+    <div class="grid">
+      <button onclick="setGoal('fat')">تنشيف</button>
+      <button onclick="setGoal('muscle')">تعضيل</button>
+      <button onclick="setGoal('cardio')">لياقة</button>
+      <button onclick="setGoal('stretch')">تمدد</button>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section id="step-workout" class="hidden">
+    <h1 id="workoutTitle"></h1>
+
+    <img id="illu" src="assets/illustrations/pushup.svg">
+
+    <div id="timer">30</div>
+
+    <button onclick="startWorkout()">ابدأ التمرين</button>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
 </body>
 </html>
