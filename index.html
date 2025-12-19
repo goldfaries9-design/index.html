@@ -50,11 +50,11 @@
       <p class="muted" id="homeSub">تمارين مخصصة حسب احتياجك مع مؤقت ورسوم توضيحية وخطة أسبوعية.</p>
 
       <div class="grid2">
-        <button class="card" id="btnMen">
+        <button class="card" id="btnMen" type="button">
           <div class="cardTitle" id="menTitle">رجال</div>
           <div class="cardSub" id="menSub">Men programs</div>
         </button>
-        <button class="card" id="btnWomen">
+        <button class="card" id="btnWomen" type="button">
           <div class="cardTitle" id="womenTitle">نساء</div>
           <div class="cardSub" id="womenSub">Women programs</div>
         </button>
@@ -66,7 +66,7 @@
             <div class="panelTitle" id="quickTitle">سريع</div>
             <div class="muted" id="quickSub">تمرين 5 دقائق الآن</div>
           </div>
-          <button class="primary" id="quickStartBtn">Start</button>
+          <button class="primary" id="quickStartBtn" type="button">Start</button>
         </div>
       </div>
 
@@ -76,7 +76,7 @@
             <div class="panelTitle" id="continueTitle">ابدأ التخطيط</div>
             <div class="muted" id="continueSub">ادخل بياناتك وخذ خطة</div>
           </div>
-          <button class="primary" id="goProfileBtn">ابدأ</button>
+          <button class="primary" id="goProfileBtn" type="button">ابدأ</button>
         </div>
       </div>
     </section>
@@ -88,22 +88,22 @@
       <div class="panel">
         <div class="grid2">
           <div>
-            <label class="label" id="heightLabel">الطول (سم)</label>
+            <label class="label" id="heightLabel" for="heightCm">الطول (سم)</label>
             <input class="input" id="heightCm" type="number" inputmode="numeric" placeholder="170">
           </div>
           <div>
-            <label class="label" id="weightLabel">الوزن (كغ)</label>
+            <label class="label" id="weightLabel" for="weightKg">الوزن (كغ)</label>
             <input class="input" id="weightKg" type="number" inputmode="numeric" placeholder="70">
           </div>
         </div>
 
         <div class="grid2">
           <div>
-            <label class="label" id="ageLabel">العمر (اختياري)</label>
+            <label class="label" id="ageLabel" for="age">العمر (اختياري)</label>
             <input class="input" id="age" type="number" inputmode="numeric" placeholder="22">
           </div>
           <div>
-            <label class="label" id="levelLabel">المستوى</label>
+            <label class="label" id="levelLabel" for="level">المستوى</label>
             <select class="input" id="level">
               <option value="beginner">مبتدئ</option>
               <option value="intermediate">متوسط</option>
@@ -114,7 +114,7 @@
 
         <div class="grid2">
           <div>
-            <label class="label" id="injuryLabel">ألم/إصابة</label>
+            <label class="label" id="injuryLabel" for="injury">ألم/إصابة</label>
             <select class="input" id="injury">
               <option value="none">لا</option>
               <option value="knee">ركبة</option>
@@ -124,7 +124,7 @@
             </select>
           </div>
           <div>
-            <label class="label" id="activityLabel">نشاط يومي (اختياري)</label>
+            <label class="label" id="activityLabel" for="activity">نشاط يومي (اختياري)</label>
             <select class="input" id="activity">
               <option value="low">قليل</option>
               <option value="mid">متوسط</option>
@@ -138,11 +138,11 @@
             <div class="panelTitle" id="bmiTitle">BMI</div>
             <div class="muted" id="bmiText">—</div>
           </div>
-          <button class="primary" id="goGoalBtn">التالي</button>
+          <button class="primary" id="goGoalBtn" type="button">التالي</button>
         </div>
       </div>
 
-      <button class="ghost" id="backHome1">رجوع</button>
+      <button class="ghost" id="backHome1" type="button">رجوع</button>
     </section>
 
     <!-- SCREEN: GOAL -->
@@ -150,27 +150,27 @@
       <h1 id="goalTitle">اختر هدفك</h1>
 
       <div class="grid2">
-        <button class="card goal" data-goal="fat_loss" id="gFat">
+        <button class="card goal" data-goal="fat_loss" id="gFat" type="button">
           <div class="cardTitle" id="gFatT">تنشيف</div>
           <div class="cardSub" id="gFatS">Fat loss</div>
         </button>
-        <button class="card goal" data-goal="muscle_gain" id="gMuscle">
+        <button class="card goal" data-goal="muscle_gain" id="gMuscle" type="button">
           <div class="cardTitle" id="gMuscleT">تعضيل</div>
           <div class="cardSub" id="gMuscleS">Muscle</div>
         </button>
-        <button class="card goal" data-goal="cardio" id="gCardio">
+        <button class="card goal" data-goal="cardio" id="gCardio" type="button">
           <div class="cardTitle" id="gCardioT">هوائي</div>
           <div class="cardSub" id="gCardioS">Cardio</div>
         </button>
-        <button class="card goal" data-goal="mobility" id="gMob">
+        <button class="card goal" data-goal="mobility" id="gMob" type="button">
           <div class="cardTitle" id="gMobT">مرونة</div>
           <div class="cardSub" id="gMobS">Mobility</div>
         </button>
-        <button class="card goal" data-goal="stretching" id="gStretch">
+        <button class="card goal" data-goal="stretching" id="gStretch" type="button">
           <div class="cardTitle" id="gStretchT">تمدد</div>
           <div class="cardSub" id="gStretchS">Stretch</div>
         </button>
-        <button class="card goal" data-goal="maintain" id="gMaintain">
+        <button class="card goal" data-goal="maintain" id="gMaintain" type="button">
           <div class="cardTitle" id="gMaintainT">محافظة</div>
           <div class="cardSub" id="gMaintainS">Maintain</div>
         </button>
@@ -179,7 +179,7 @@
       <div class="panel">
         <div class="grid2">
           <div>
-            <label class="label" id="durationLabel">مدة الجلسة</label>
+            <label class="label" id="durationLabel" for="duration">مدة الجلسة</label>
             <select class="input" id="duration">
               <option value="10">10 min</option>
               <option value="20" selected>20 min</option>
@@ -188,7 +188,7 @@
             </select>
           </div>
           <div>
-            <label class="label" id="daysLabel">أيام الأسبوع</label>
+            <label class="label" id="daysLabel" for="days">أيام الأسبوع</label>
             <select class="input" id="days">
               <option value="2">2</option>
               <option value="3">3</option>
@@ -201,14 +201,14 @@
 
         <div class="grid2">
           <div>
-            <label class="label" id="modeLabel">وضع التمرين</label>
+            <label class="label" id="modeLabel" for="mode">وضع التمرين</label>
             <select class="input" id="mode">
               <option value="timer" selected>Timer</option>
               <option value="reps">Reps</option>
             </select>
           </div>
           <div>
-            <label class="label" id="impactLabel">الحِدة/القفز</label>
+            <label class="label" id="impactLabel" for="impact">الحِدة/القفز</label>
             <select class="input" id="impact">
               <option value="auto" selected>Auto</option>
               <option value="low">Low impact</option>
@@ -222,11 +222,11 @@
             <div class="panelTitle" id="goalChosenTitle">الاختيار</div>
             <div class="muted" id="goalChosenText">—</div>
           </div>
-          <button class="primary" id="goTargetBtn">التالي</button>
+          <button class="primary" id="goTargetBtn" type="button">التالي</button>
         </div>
       </div>
 
-      <button class="ghost" id="backHome2">رجوع</button>
+      <button class="ghost" id="backHome2" type="button">رجوع</button>
     </section>
 
     <!-- SCREEN: TARGET -->
@@ -234,20 +234,20 @@
       <h1 id="targetTitle">استهداف المنطقة</h1>
 
       <div class="grid3">
-        <button class="pill target" data-target="full_body" id="tFull">كامل الجسم</button>
-        <button class="pill target" data-target="core" id="tCore">بطن</button>
-        <button class="pill target" data-target="chest" id="tChest">صدر</button>
-        <button class="pill target" data-target="back" id="tBack">ظهر</button>
-        <button class="pill target" data-target="shoulders" id="tShoulders">كتف</button>
-        <button class="pill target" data-target="arms" id="tArms">ذراع</button>
-        <button class="pill target" data-target="legs" id="tLegs">أرجل</button>
-        <button class="pill target" data-target="glutes" id="tGlutes">مؤخرة</button>
+        <button class="pill target" data-target="full_body" id="tFull" type="button">كامل الجسم</button>
+        <button class="pill target" data-target="core" id="tCore" type="button">بطن</button>
+        <button class="pill target" data-target="chest" id="tChest" type="button">صدر</button>
+        <button class="pill target" data-target="back" id="tBack" type="button">ظهر</button>
+        <button class="pill target" data-target="shoulders" id="tShoulders" type="button">كتف</button>
+        <button class="pill target" data-target="arms" id="tArms" type="button">ذراع</button>
+        <button class="pill target" data-target="legs" id="tLegs" type="button">أرجل</button>
+        <button class="pill target" data-target="glutes" id="tGlutes" type="button">مؤخرة</button>
       </div>
 
       <div class="panel">
         <div class="grid2">
           <div>
-            <label class="label" id="typeLabel">نوع التمرين</label>
+            <label class="label" id="typeLabel" for="workoutType">نوع التمرين</label>
             <select class="input" id="workoutType">
               <option value="mix" selected>Mix</option>
               <option value="bodyweight">Bodyweight</option>
@@ -256,7 +256,7 @@
             </select>
           </div>
           <div>
-            <label class="label" id="equipmentLabel">المعدات</label>
+            <label class="label" id="equipmentLabel" for="equipment">المعدات</label>
             <select class="input" id="equipment">
               <option value="none" selected>بدون عدة</option>
             </select>
@@ -268,11 +268,11 @@
             <div class="panelTitle" id="planTitle">الخطة</div>
             <div class="muted" id="planSub">توليد خطة أسبوعية + تمرين اليوم</div>
           </div>
-          <button class="primary" id="generateBtn">توليد</button>
+          <button class="primary" id="generateBtn" type="button">توليد</button>
         </div>
       </div>
 
-      <button class="ghost" id="backGoal">رجوع</button>
+      <button class="ghost" id="backGoal" type="button">رجوع</button>
     </section>
 
     <!-- SCREEN: PLAN -->
@@ -285,7 +285,7 @@
             <div class="panelTitle" id="todayTitle">تمرين اليوم</div>
             <div class="muted" id="todaySub">جاهز للبدء</div>
           </div>
-          <button class="primary" id="startTodayBtn">Start</button>
+          <button class="primary" id="startTodayBtn" type="button">Start</button>
         </div>
       </div>
 
@@ -295,7 +295,7 @@
             <div class="panelTitle" id="streakTitle">Streak</div>
             <div class="muted" id="streakText">—</div>
           </div>
-          <button class="chip" id="logBtn">Log ✅</button>
+          <button class="chip" id="logBtn" type="button">Log ✅</button>
         </div>
       </div>
 
@@ -303,8 +303,8 @@
 
       <div class="panel">
         <div class="panelRow">
-          <button class="ghost" id="editBtn">تعديل الاختيارات</button>
-          <button class="ghost" id="libraryBtn">المكتبة</button>
+          <button class="ghost" id="editBtn" type="button">تعديل الاختيارات</button>
+          <button class="ghost" id="libraryBtn" type="button">المكتبة</button>
         </div>
       </div>
     </section>
@@ -316,7 +316,7 @@
           <div class="playerTitle" id="playerExerciseName">—</div>
           <div class="muted" id="playerMeta">—</div>
         </div>
-        <button class="chip" id="swapBtn">بدّل</button>
+        <button class="chip" id="swapBtn" type="button">بدّل</button>
       </div>
 
       <div class="illuBox">
@@ -329,9 +329,9 @@
       </div>
 
       <div class="playerControls">
-        <button class="primary" id="playBtn">Start</button>
-        <button class="ghost" id="nextBtn">Next</button>
-        <button class="ghost" id="stopBtn">Stop</button>
+        <button class="primary" id="playBtn" type="button">Start</button>
+        <button class="ghost" id="nextBtn" type="button">Next</button>
+        <button class="ghost" id="stopBtn" type="button">Stop</button>
       </div>
 
       <div class="panel">
@@ -343,7 +343,7 @@
         </div>
       </div>
 
-      <button class="ghost" id="backPlan">رجوع للخطة</button>
+      <button class="ghost" id="backPlan" type="button">رجوع للخطة</button>
     </section>
 
     <!-- SCREEN: LIBRARY -->
@@ -353,31 +353,32 @@
       <div class="panel">
         <div class="grid2">
           <div>
-            <label class="label" id="libGoalLabel">هدف</label>
+            <label class="label" id="libGoalLabel" for="libGoal">هدف</label>
             <select class="input" id="libGoal"></select>
           </div>
           <div>
-            <label class="label" id="libTargetLabel">منطقة</label>
+            <label class="label" id="libTargetLabel" for="libTarget">منطقة</label>
             <select class="input" id="libTarget"></select>
           </div>
         </div>
         <div class="grid2">
           <div>
-            <label class="label" id="libTypeLabel">نوع</label>
+            <label class="label" id="libTypeLabel" for="libType">نوع</label>
             <select class="input" id="libType"></select>
           </div>
           <div>
-            <label class="label" id="libLevelLabel">مستوى</label>
+            <label class="label" id="libLevelLabel" for="libLevel">مستوى</label>
             <select class="input" id="libLevel"></select>
           </div>
         </div>
-        <button class="primary" id="libApply">Apply</button>
+        <button class="primary" id="libApply" type="button">Apply</button>
       </div>
 
       <div id="libList" class="libList"></div>
 
-      <button class="ghost" id="backPlan2">رجوع</button>
+      <button class="ghost" id="backPlan2" type="button">رجوع</button>
     </section>
+
   </main>
 
   <script src="app.js"></script>
