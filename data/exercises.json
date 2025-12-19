@@ -1,0 +1,18 @@
+[
+  {
+    "id":"pushup",
+    "name_ar":"ضغط",
+    "goal":"muscle",
+    "target":["صدر","ذراع"],
+    "type":"reps",
+    "illustration":"assets/illustrations/pushup.svg"
+  },
+  {
+    "id":"squat",
+    "name_ar":"سكوات",
+    "goal":"fat",
+    "target":["أرجل","مؤخرة"],
+    "type":"reps",
+    "illustration":"assets/illustrations/squat.svg"
+  }
+]
