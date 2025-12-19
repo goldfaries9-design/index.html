@@ -1,64 +1,385 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0f" />
   <title>GoldFit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
+
 <body>
-
-<header class="topbar">
-  <div class="brand">GoldFit</div>
-  <div class="actions">
-    <button id="langBtn">AR | EN</button>
-    <button id="modeBtn">🌙</button>
-  </div>
-</header>
-
-<main class="container">
-
-  <!-- STEP 1 -->
-  <section id="step-section">
-    <h1>اختر القسم</h1>
-    <div class="grid">
-      <button onclick="setSection('men')">رجال</button>
-      <button onclick="setSection('women')">نساء</button>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logoDot"></div>
+      <div>
+        <div class="brandName">GoldFit</div>
+        <div class="brandTag" id="brandTag">Black & Gold Training</div>
+      </div>
     </div>
-  </section>
 
-  <!-- STEP 2 -->
-  <section id="step-body" class="hidden">
-    <h1>بيانات الجسم</h1>
-    <input id="height" type="number" placeholder="الطول (سم)">
-    <input id="weight" type="number" placeholder="الوزن (كغ)">
-    <button onclick="goGoals()">التالي</button>
-  </section>
-
-  <!-- STEP 3 -->
-  <section id="step-goal" class="hidden">
-    <h1>اختر الهدف</h1>
-    <div class="grid">
-      <button onclick="setGoal('fat')">تنشيف</button>
-      <button onclick="setGoal('muscle')">تعضيل</button>
-      <button onclick="setGoal('cardio')">لياقة</button>
-      <button onclick="setGoal('stretch')">تمدد</button>
+    <div class="topActions">
+      <button class="chip" id="installBtn" hidden>Install</button>
+      <button class="chip" id="langBtn">AR</button>
+      <button class="chip" id="themeBtn">🌙</button>
     </div>
-  </section>
+  </header>
 
-  <!-- STEP 4 -->
-  <section id="step-workout" class="hidden">
-    <h1 id="workoutTitle"></h1>
+  <main class="container">
+    <!-- STEP NAV -->
+    <div class="stepper">
+      <div class="step" id="s1">1</div>
+      <div class="line"></div>
+      <div class="step" id="s2">2</div>
+      <div class="line"></div>
+      <div class="step" id="s3">3</div>
+      <div class="line"></div>
+      <div class="step" id="s4">4</div>
+      <div class="line"></div>
+      <div class="step" id="s5">5</div>
+    </div>
 
-    <img id="illu" src="assets/illustrations/pushup.svg">
+    <!-- SCREEN: HOME -->
+    <section class="screen" id="screen-home">
+      <h1 id="homeTitle">اختر القسم</h1>
+      <p class="muted" id="homeSub">تمارين مخصصة حسب احتياجك مع مؤقت ورسوم توضيحية وخطة أسبوعية.</p>
 
-    <div id="timer">30</div>
+      <div class="grid2">
+        <button class="card" id="btnMen">
+          <div class="cardTitle" id="menTitle">رجال</div>
+          <div class="cardSub" id="menSub">Men programs</div>
+        </button>
+        <button class="card" id="btnWomen">
+          <div class="cardTitle" id="womenTitle">نساء</div>
+          <div class="cardSub" id="womenSub">Women programs</div>
+        </button>
+      </div>
 
-    <button onclick="startWorkout()">ابدأ التمرين</button>
-  </section>
+      <div class="panel">
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="quickTitle">سريع</div>
+            <div class="muted" id="quickSub">تمرين 5 دقائق الآن</div>
+          </div>
+          <button class="primary" id="quickStartBtn">Start</button>
+        </div>
+      </div>
 
-</main>
+      <div class="panel">
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="continueTitle">ابدأ التخطيط</div>
+            <div class="muted" id="continueSub">ادخل بياناتك وخذ خطة</div>
+          </div>
+          <button class="primary" id="goProfileBtn">ابدأ</button>
+        </div>
+      </div>
+    </section>
 
-<script src="app.js"></script>
+    <!-- SCREEN: PROFILE -->
+    <section class="screen hidden" id="screen-profile">
+      <h1 id="profileTitle">بيانات الجسم</h1>
+
+      <div class="panel">
+        <div class="grid2">
+          <div>
+            <label class="label" id="heightLabel">الطول (سم)</label>
+            <input class="input" id="heightCm" type="number" inputmode="numeric" placeholder="170">
+          </div>
+          <div>
+            <label class="label" id="weightLabel">الوزن (كغ)</label>
+            <input class="input" id="weightKg" type="number" inputmode="numeric" placeholder="70">
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label class="label" id="ageLabel">العمر (اختياري)</label>
+            <input class="input" id="age" type="number" inputmode="numeric" placeholder="22">
+          </div>
+          <div>
+            <label class="label" id="levelLabel">المستوى</label>
+            <select class="input" id="level">
+              <option value="beginner">مبتدئ</option>
+              <option value="intermediate">متوسط</option>
+              <option value="advanced">متقدم</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label class="label" id="injuryLabel">ألم/إصابة</label>
+            <select class="input" id="injury">
+              <option value="none">لا</option>
+              <option value="knee">ركبة</option>
+              <option value="back">ظهر</option>
+              <option value="shoulder">كتف</option>
+              <option value="wrist">رسغ</option>
+            </select>
+          </div>
+          <div>
+            <label class="label" id="activityLabel">نشاط يومي (اختياري)</label>
+            <select class="input" id="activity">
+              <option value="low">قليل</option>
+              <option value="mid">متوسط</option>
+              <option value="high">عالي</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="bmiTitle">BMI</div>
+            <div class="muted" id="bmiText">—</div>
+          </div>
+          <button class="primary" id="goGoalBtn">التالي</button>
+        </div>
+      </div>
+
+      <button class="ghost" id="backHome1">رجوع</button>
+    </section>
+
+    <!-- SCREEN: GOAL -->
+    <section class="screen hidden" id="screen-goal">
+      <h1 id="goalTitle">اختر هدفك</h1>
+
+      <div class="grid2">
+        <button class="card goal" data-goal="fat_loss" id="gFat">
+          <div class="cardTitle" id="gFatT">تنشيف</div>
+          <div class="cardSub" id="gFatS">Fat loss</div>
+        </button>
+        <button class="card goal" data-goal="muscle_gain" id="gMuscle">
+          <div class="cardTitle" id="gMuscleT">تعضيل</div>
+          <div class="cardSub" id="gMuscleS">Muscle</div>
+        </button>
+        <button class="card goal" data-goal="cardio" id="gCardio">
+          <div class="cardTitle" id="gCardioT">هوائي</div>
+          <div class="cardSub" id="gCardioS">Cardio</div>
+        </button>
+        <button class="card goal" data-goal="mobility" id="gMob">
+          <div class="cardTitle" id="gMobT">مرونة</div>
+          <div class="cardSub" id="gMobS">Mobility</div>
+        </button>
+        <button class="card goal" data-goal="stretching" id="gStretch">
+          <div class="cardTitle" id="gStretchT">تمدد</div>
+          <div class="cardSub" id="gStretchS">Stretch</div>
+        </button>
+        <button class="card goal" data-goal="maintain" id="gMaintain">
+          <div class="cardTitle" id="gMaintainT">محافظة</div>
+          <div class="cardSub" id="gMaintainS">Maintain</div>
+        </button>
+      </div>
+
+      <div class="panel">
+        <div class="grid2">
+          <div>
+            <label class="label" id="durationLabel">مدة الجلسة</label>
+            <select class="input" id="duration">
+              <option value="10">10 min</option>
+              <option value="20" selected>20 min</option>
+              <option value="30">30 min</option>
+              <option value="45">45 min</option>
+            </select>
+          </div>
+          <div>
+            <label class="label" id="daysLabel">أيام الأسبوع</label>
+            <select class="input" id="days">
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div>
+            <label class="label" id="modeLabel">وضع التمرين</label>
+            <select class="input" id="mode">
+              <option value="timer" selected>Timer</option>
+              <option value="reps">Reps</option>
+            </select>
+          </div>
+          <div>
+            <label class="label" id="impactLabel">الحِدة/القفز</label>
+            <select class="input" id="impact">
+              <option value="auto" selected>Auto</option>
+              <option value="low">Low impact</option>
+              <option value="normal">Normal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="goalChosenTitle">الاختيار</div>
+            <div class="muted" id="goalChosenText">—</div>
+          </div>
+          <button class="primary" id="goTargetBtn">التالي</button>
+        </div>
+      </div>
+
+      <button class="ghost" id="backHome2">رجوع</button>
+    </section>
+
+    <!-- SCREEN: TARGET -->
+    <section class="screen hidden" id="screen-target">
+      <h1 id="targetTitle">استهداف المنطقة</h1>
+
+      <div class="grid3">
+        <button class="pill target" data-target="full_body" id="tFull">كامل الجسم</button>
+        <button class="pill target" data-target="core" id="tCore">بطن</button>
+        <button class="pill target" data-target="chest" id="tChest">صدر</button>
+        <button class="pill target" data-target="back" id="tBack">ظهر</button>
+        <button class="pill target" data-target="shoulders" id="tShoulders">كتف</button>
+        <button class="pill target" data-target="arms" id="tArms">ذراع</button>
+        <button class="pill target" data-target="legs" id="tLegs">أرجل</button>
+        <button class="pill target" data-target="glutes" id="tGlutes">مؤخرة</button>
+      </div>
+
+      <div class="panel">
+        <div class="grid2">
+          <div>
+            <label class="label" id="typeLabel">نوع التمرين</label>
+            <select class="input" id="workoutType">
+              <option value="mix" selected>Mix</option>
+              <option value="bodyweight">Bodyweight</option>
+              <option value="cardio">Cardio</option>
+              <option value="stretching">Stretching</option>
+            </select>
+          </div>
+          <div>
+            <label class="label" id="equipmentLabel">المعدات</label>
+            <select class="input" id="equipment">
+              <option value="none" selected>بدون عدة</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="planTitle">الخطة</div>
+            <div class="muted" id="planSub">توليد خطة أسبوعية + تمرين اليوم</div>
+          </div>
+          <button class="primary" id="generateBtn">توليد</button>
+        </div>
+      </div>
+
+      <button class="ghost" id="backGoal">رجوع</button>
+    </section>
+
+    <!-- SCREEN: PLAN -->
+    <section class="screen hidden" id="screen-plan">
+      <h1 id="planHeader">خطة الأسبوع</h1>
+
+      <div class="panel">
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="todayTitle">تمرين اليوم</div>
+            <div class="muted" id="todaySub">جاهز للبدء</div>
+          </div>
+          <button class="primary" id="startTodayBtn">Start</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="streakTitle">Streak</div>
+            <div class="muted" id="streakText">—</div>
+          </div>
+          <button class="chip" id="logBtn">Log ✅</button>
+        </div>
+      </div>
+
+      <div id="weekList" class="weekList"></div>
+
+      <div class="panel">
+        <div class="panelRow">
+          <button class="ghost" id="editBtn">تعديل الاختيارات</button>
+          <button class="ghost" id="libraryBtn">المكتبة</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN: WORKOUT PLAYER -->
+    <section class="screen hidden" id="screen-player">
+      <div class="playerTop">
+        <div>
+          <div class="playerTitle" id="playerExerciseName">—</div>
+          <div class="muted" id="playerMeta">—</div>
+        </div>
+        <button class="chip" id="swapBtn">بدّل</button>
+      </div>
+
+      <div class="illuBox">
+        <img id="playerIllu" alt="exercise illustration" />
+      </div>
+
+      <div class="counterBox">
+        <div class="counter" id="counter">0</div>
+        <div class="muted" id="counterHint">—</div>
+      </div>
+
+      <div class="playerControls">
+        <button class="primary" id="playBtn">Start</button>
+        <button class="ghost" id="nextBtn">Next</button>
+        <button class="ghost" id="stopBtn">Stop</button>
+      </div>
+
+      <div class="panel">
+        <div class="panelRow">
+          <div>
+            <div class="panelTitle" id="tipsTitle">نصائح</div>
+            <div class="muted" id="tipsText">—</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="ghost" id="backPlan">رجوع للخطة</button>
+    </section>
+
+    <!-- SCREEN: LIBRARY -->
+    <section class="screen hidden" id="screen-library">
+      <h1 id="libTitle">مكتبة التمارين</h1>
+
+      <div class="panel">
+        <div class="grid2">
+          <div>
+            <label class="label" id="libGoalLabel">هدف</label>
+            <select class="input" id="libGoal"></select>
+          </div>
+          <div>
+            <label class="label" id="libTargetLabel">منطقة</label>
+            <select class="input" id="libTarget"></select>
+          </div>
+        </div>
+        <div class="grid2">
+          <div>
+            <label class="label" id="libTypeLabel">نوع</label>
+            <select class="input" id="libType"></select>
+          </div>
+          <div>
+            <label class="label" id="libLevelLabel">مستوى</label>
+            <select class="input" id="libLevel"></select>
+          </div>
+        </div>
+        <button class="primary" id="libApply">Apply</button>
+      </div>
+
+      <div id="libList" class="libList"></div>
+
+      <button class="ghost" id="backPlan2">رجوع</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
